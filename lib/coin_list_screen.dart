@@ -82,6 +82,8 @@ class _CoinListScreenState extends State<CoinListScreen> {
               child: ListView.builder(
                 itemCount: cryptoList!.length,
                 itemBuilder: (context, index) {
+                  //inja har bar yeki az item haye list ro mideh behesh ke ye iteam besazeh
+                  //ro safhe
                   return _getListTileItem(cryptoList![index]);
                 },
               ),
@@ -91,7 +93,7 @@ class _CoinListScreenState extends State<CoinListScreen> {
       )),
     );
   }
-
+//2 inja ye ListTile barmigardoneh
   Widget _getListTileItem(Model_Coin crypto) {
     return ListTile(
       title: Text(
