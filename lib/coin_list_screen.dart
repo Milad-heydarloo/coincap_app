@@ -120,6 +120,7 @@ class _CoinListScreenState extends State<CoinListScreen> {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
+                  //ta 2 ragham ashar bokhoreh
                   crypto.priceUsd.toStringAsFixed(2),
                   style: TextStyle(color: greyColor, fontSize: 18),
                 ),
