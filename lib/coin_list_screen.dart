@@ -36,6 +36,7 @@ class _CoinListScreenState extends State<CoinListScreen> {
           style: TextStyle(color: redColor,fontFamily: 'mr'),
         ),
         centerTitle: true,
+        //icon back appbar ke back neshon nemideh
         automaticallyImplyLeading: false,
       ),
       body: SafeArea(
