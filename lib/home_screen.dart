@@ -36,9 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
             //   color: Colors.white,
             //   size: 30.0,
             // ),
-            Container(
-              height: 400,
-              width: 400,
+           Center(
               child: Lottie.network(
                   'https://assets-v2.lottiefiles.com/a/34238bb6-3140-11ee-9a60-5b3ea550ef4e/BVNMkfgnpH.json'),
             ),
@@ -50,12 +48,15 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> getData() async {
+    //inja man miyam data ro migiram az server
     var response = await Dio().get('https://api.coincap.io/v2/assets');
+    //be ezaye har data iii ke daram az model ye map misazam va tosh ye object ba namedCostructor misazam
+    //tabidelsh mikonam be list va mirizam to cryptoList
     List<Model_Coin> cryptoList = response.data['data']
         .map<Model_Coin>(
             (jsonMapObject) => Model_Coin.formJsonObject(jsonMapObject))
         .toList();
-
+//dar nahayat bade karam in list ro mifrestam to CoinListScreen
     Navigator.push(
       context,
       MaterialPageRoute(
