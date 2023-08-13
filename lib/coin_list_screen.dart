@@ -134,6 +134,8 @@ class _CoinListScreenState extends State<CoinListScreen> {
             SizedBox(
                 width: 50,
                 child: Center(
+                  //inja miyarim _getIconChangePercent estefadeh mikonim
+                  //va vorodi crypto.changePercent24hr besh midim
                   child: _getIconChangePercent(crypto.changePercent24hr),
                 )),
           ],
@@ -142,6 +144,9 @@ class _CoinListScreenState extends State<CoinListScreen> {
     );
   }
 
+  //ye method darim _getIconChangePercent ke ye vorodi migireh
+  //age vorodi < kochiktar ya = mosavi ba 0 bashe flesh ro be paiin
+  //vagarna ro be bala
   Widget _getIconChangePercent(double percentChange) {
     return percentChange <= 0
         ? Icon(
