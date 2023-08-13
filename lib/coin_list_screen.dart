@@ -1,17 +1,19 @@
+import 'package:coincap/Model/ModelCoin.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/data/constant/constants.dart';
-import 'package:flutter_application_1/data/model/crypto.dart';
+
+
+import 'constant/constants.dart';
 
 class CoinListScreen extends StatefulWidget {
   CoinListScreen({Key? key, this.cryptoList}) : super(key: key);
-  List<Crypto>? cryptoList;
+  List<Model_Coin>? cryptoList;
   @override
   _CoinListScreenState createState() => _CoinListScreenState();
 }
 
 class _CoinListScreenState extends State<CoinListScreen> {
-  List<Crypto>? cryptoList;
+  List<Model_Coin>? cryptoList;
   bool isSearchLoadingVisible = false;
   @override
   void initState() {
@@ -26,8 +28,9 @@ class _CoinListScreenState extends State<CoinListScreen> {
       appBar: AppBar(
         backgroundColor: blackColor,
         title: Text(
+
           'کیریپتو بازار',
-          style: TextStyle(fontFamily: 'mr'),
+          style: TextStyle(color: redColor,fontFamily: 'mr'),
         ),
         centerTitle: true,
         automaticallyImplyLeading: false,
@@ -67,7 +70,7 @@ class _CoinListScreenState extends State<CoinListScreen> {
               backgroundColor: greenColor,
               color: blackColor,
               onRefresh: () async {
-                List<Crypto> fereshData = await _getData();
+                List<Model_Coin> fereshData = await _getData();
                 setState(() {
                   cryptoList = fereshData;
                 });
@@ -85,7 +88,7 @@ class _CoinListScreenState extends State<CoinListScreen> {
     );
   }
 
-  Widget _getListTileItem(Crypto crypto) {
+  Widget _getListTileItem(Model_Coin crypto) {
     return ListTile(
       title: Text(
         crypto.name,
@@ -154,16 +157,16 @@ class _CoinListScreenState extends State<CoinListScreen> {
     return percentChange <= 0 ? redColor : greenColor;
   }
 
-  Future<List<Crypto>> _getData() async {
+  Future<List<Model_Coin>> _getData() async {
     var response = await Dio().get('https://api.coincap.io/v2/assets');
-    List<Crypto> cryptoList = response.data['data']
-        .map<Crypto>((jsonMapObject) => Crypto.fromMapJson(jsonMapObject))
+    List<Model_Coin> cryptoList = response.data['data']
+        .map<Model_Coin>((jsonMapObject) => Model_Coin.formJsonObject(jsonMapObject))
         .toList();
     return cryptoList;
   }
 
   Future<void> _fiterList(String enteredKeyword) async {
-    List<Crypto> cryptoResultList = [];
+    List<Model_Coin> cryptoResultList = [];
     if (enteredKeyword.isEmpty) {
       setState(() {
         isSearchLoadingVisible = true;
