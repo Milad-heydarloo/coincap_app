@@ -127,6 +127,7 @@ class _CoinListScreenState extends State<CoinListScreen> {
                 Text(
                   crypto.changePercent24hr.toStringAsFixed(2),
                   style: TextStyle(
+                    //inja estefadeh shode to rang matn gheymata
                     color: _getColorChnageText(crypto.changePercent24hr),
                   ),
                 )
@@ -161,7 +162,8 @@ class _CoinListScreenState extends State<CoinListScreen> {
             color: greenColor,
           );
   }
-
+//ye method darim ke ye vordi migireh age vorodi kochiktar ya mosavi ba 0
+//bashe red nabashe sabz ro barmigardoneh
   Color _getColorChnageText(double percentChange) {
     return percentChange <= 0 ? redColor : greenColor;
   }
