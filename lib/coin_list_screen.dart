@@ -171,6 +171,7 @@ class _CoinListScreenState extends State<CoinListScreen> {
     return percentChange <= 0 ? redColor : greenColor;
   }
 
+  //inja kole data ro az server migireh va mirizeh dakhel list barmigardoneh
   Future<List<Model_Coin>> _getData() async {
     var response = await Dio().get('https://api.coincap.io/v2/assets');
     List<Model_Coin> cryptoList = response.data['data']
