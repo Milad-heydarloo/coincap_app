@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'constant/constants.dart';
 
 class CoinListScreen extends StatefulWidget {
+  //1badesh data miyad inja va in list por mishe
   CoinListScreen({Key? key, this.cryptoList}) : super(key: key);
   List<Model_Coin>? cryptoList;
   @override
@@ -18,6 +19,8 @@ class _CoinListScreenState extends State<CoinListScreen> {
   @override
   void initState() {
     super.initState();
+    //2 tavasot widget.cryptoList be class bala dast resi darim
+    //hala ** in state dakhe widget balast
     cryptoList = widget.cryptoList;
   }
 

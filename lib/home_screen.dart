@@ -1,8 +1,8 @@
 import 'package:coincap/Model/ModelCoin.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import 'coin_list_screen.dart';
 
@@ -31,15 +31,16 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Image(image: AssetImage('assets/images/logo.png')),
-            // SpinKitWave(
-            //   color: Colors.white,
-            //   size: 30.0,
-            // ),
-           Center(
-              child: Lottie.network(
-                  'https://assets-v2.lottiefiles.com/a/34238bb6-3140-11ee-9a60-5b3ea550ef4e/BVNMkfgnpH.json'),
+           // Image(image: AssetImage('assets/images/logo.png')),
+            SpinKitWave(
+              duration: Duration(seconds: 5),
+              color: Colors.white,
+              size: 60.0,
             ),
+           // Center(
+           //    child: Lottie.network(
+           //        'https://assets-v2.lottiefiles.com/a/34238bb6-3140-11ee-9a60-5b3ea550ef4e/BVNMkfgnpH.json'),
+           //  ),
 
           ],
         )),
