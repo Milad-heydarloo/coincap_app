@@ -70,6 +70,9 @@ class _CoinListScreenState extends State<CoinListScreen> {
             ),
           ),
           Expanded(
+            //RefreshIndicator onRefresh dareh ke vaghti karbar
+            //safaro mikeshe paiin in call mishe
+            //ke ma dobareh dataro migirim setstate mikonim to list
             child: RefreshIndicator(
               backgroundColor: greenColor,
               color: blackColor,
@@ -79,6 +82,7 @@ class _CoinListScreenState extends State<CoinListScreen> {
                   cryptoList = fereshData;
                 });
               },
+              //va bache RefreshIndicator mishe listviewmon
               child: ListView.builder(
                 itemCount: cryptoList!.length,
                 itemBuilder: (context, index) {
