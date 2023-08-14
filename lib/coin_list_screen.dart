@@ -73,6 +73,7 @@ class _CoinListScreenState extends State<CoinListScreen> {
             ),
           ),
           Visibility(
+            //2 in method call mishe
             visible: isSearchLoadingVisible,
             child: Text(
               '...در حال اپدیت اطلاعات رمز ارزها',
@@ -201,11 +202,13 @@ class _CoinListScreenState extends State<CoinListScreen> {
     List<Model_Coin> cryptoResultList = [];
     if (enteredKeyword.isEmpty) {
       setState(() {
+        //zamani ke list khali beshe
         isSearchLoadingVisible = true;
       });
       var result = await _getData();
       setState(() {
         cryptoList = result;
+        //va vaghti list update shod matn bardashteh mishe
         isSearchLoadingVisible = false;
       });
       return;
