@@ -15,6 +15,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   String title = 'loading....';
+  double six = 10.0;
 
   @override
   void initState() {
@@ -31,17 +32,24 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-           // Image(image: AssetImage('assets/images/logo.png')),
+            // Image(image: AssetImage('assets/images/logo.png')),
             SpinKitSquareCircle(
               duration: Duration(seconds: 5),
               color: Colors.white,
               size: 60.0,
             ),
-           // Center(
-           //    child: Lottie.network(
-           //        'https://assets-v2.lottiefiles.com/a/34238bb6-3140-11ee-9a60-5b3ea550ef4e/BVNMkfgnpH.json'),
-           //  ),
-
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              'biofpo',
+              style: TextStyle(
+                  color: Colors.white70, fontSize: six, fontFamily: 'mr'),
+            )
+            // Center(
+            //    child: Lottie.network(
+            //        'https://assets-v2.lottiefiles.com/a/34238bb6-3140-11ee-9a60-5b3ea550ef4e/BVNMkfgnpH.json'),
+            //  ),
           ],
         )),
       ),
@@ -57,14 +65,30 @@ class _HomeScreenState extends State<HomeScreen> {
         .map<Model_Coin>(
             (jsonMapObject) => Model_Coin.formJsonObject(jsonMapObject))
         .toList();
+    Future.delayed(
+      Duration(seconds: 3),
+      () {
+        for (double a = 10.0; a <= 13.0; a++) {
+          setState(() {
+            six = a;
+          });
+        }
+        Future.delayed(
+          Duration(seconds: 3),
+          () {
 //dar nahayat bade karam in list ro mifrestam to CoinListScreen
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => CoinListScreen(
-          cryptoList: cryptoList,
-        ),
-      ),
+
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => CoinListScreen(
+                  cryptoList: cryptoList,
+                ),
+              ),
+            );
+          },
+        );
+      },
     );
   }
 }

@@ -43,21 +43,31 @@ class _CoinListScreenState extends State<CoinListScreen> {
           child: Column(
         children: [
           Padding(
+            //8pxl ham behesh pading midim
             padding: const EdgeInsets.all(8.0),
+            //in Directionality harchi besh bedimo Direction ro taghir mideh
             child: Directionality(
+              //in peraperti ham hatman bayad bashe
               textDirection: TextDirection.rtl,
               child: TextField(
+                //ye method darim to TextField ke harbar chizi vared mishe value sho
+                //migireh va pass mideh be ye method
+                //har bar migeh ee ghablesh in bod alan in shod
                 onChanged: (value) {
                   _fiterList(value);
                 },
                 decoration: InputDecoration(
+                  //hint TextField
                     hintText: 'اسم رمزارز معتبر را سرچ کنید',
+                    //be hint style midim
                     hintStyle: TextStyle(fontFamily: 'mr', color: Colors.white),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide: BorderSide(width: 0, style: BorderStyle.none),
                     ),
+                    //in baes mishe to por beshe InputDecoration
                     filled: true,
+                    //rang pas zamineh sabz mishe InputDecoration
                     fillColor: greenColor),
               ),
             ),
@@ -187,6 +197,7 @@ class _CoinListScreenState extends State<CoinListScreen> {
   }
 
   Future<void> _fiterList(String enteredKeyword) async {
+    //1man ye list khali daram
     List<Model_Coin> cryptoResultList = [];
     if (enteredKeyword.isEmpty) {
       setState(() {
@@ -199,10 +210,15 @@ class _CoinListScreenState extends State<CoinListScreen> {
       });
       return;
     }
+    //2cryptoList ham list aslimoneh
+    //3miyam list aslimono where mikonimrosh ba har
     cryptoResultList = cryptoList!.where((element) {
+      //4element.name.toLowerCase().contains miyad check mikoneh ba enteredKeyword.toLowerCase()
+      //az vorodi gerfteh
+      //age contains(enteredKeyword.toLowerCase()) bashe add mishe to list local inja
       return element.name.toLowerCase().contains(enteredKeyword.toLowerCase());
     }).toList();
-
+//5darnahayat setstate mishe ba list asliye barnameh
     setState(() {
       cryptoList = cryptoResultList;
     });
