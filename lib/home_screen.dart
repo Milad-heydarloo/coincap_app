@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
            // Image(image: AssetImage('assets/images/logo.png')),
-            SpinKitWave(
+            SpinKitSquareCircle(
               duration: Duration(seconds: 5),
               color: Colors.white,
               size: 60.0,

@@ -74,7 +74,9 @@ class _CoinListScreenState extends State<CoinListScreen> {
             //safaro mikeshe paiin in call mishe
             //ke ma dobareh dataro migirim setstate mikonim to list
             child: RefreshIndicator(
+              //rang dayereh RefreshIndicator
               backgroundColor: greenColor,
+              //rang flesh RefreshIndicator
               color: blackColor,
               onRefresh: () async {
                 List<Model_Coin> fereshData = await _getData();
